@@ -4,7 +4,6 @@ package com.clay.crypt.mapper;
 import com.clay.crypt.entity.Hash;
 import com.clay.crypt.model.CreateHashDTO;
 import com.clay.crypt.model.HashDTO;
-import org.mapstruct.IterableMapping;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.springframework.stereotype.Component;
