@@ -44,7 +44,7 @@ docker run -d --name mongodb -p 27017:27017 mongo
 docker run -d --name cryptography-service --link mongodb:mongodb -p 8080:8080 cryptography-service
 ```
 
-### Usage
+### Hashing APIs
 
 The service provides the following APIs:
 
@@ -83,6 +83,49 @@ HTTP/1.1 200 OK
 }
 ```
 
+---
+
+### Digital Signature APIs
+
+The service provides the following APIs:
 
 
+* Create DigitalSignature
+
+#### Request
+`/api/v1/digital-signatures`
+
+```
+{
+    "algorithm": "SHA512_WITH_ECDSA",
+    "data": "Hello Clay"
+}
+```
+#### Response
+
+```
+{
+    "_id": "63d55d15062ba420f10174d6",
+    "algorithm": "SHA512_WITH_ECDSA",
+    "data": "Hello Clay",
+    "digital_signature": "MEYCIQCf0NMKLGOWcsiUm1+6BhRzKnq4hz2gR3I/L7hzWbQpNwIhANj3busnOSr9udFEnKDBREcAEZQotQQaj0xOcHyKsT2n"
+}
+```
+
+
+* Delete DigitalSignature
+
+DELETE `/api/v1/digital-signatures/63d55c7efa99144fdcbf2751`
+
+
+* Get DigitalSignature
+
+GET `/api/v1/digital-signatures/63d55c7efa99144fdcbf2751`
+
+
+* Get All DigitalSignatures
+
+GET `/api/v1/digital-signatures`
+
+---
 
