@@ -11,6 +11,9 @@ import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
 import java.util.List;
 
+/**
+ * APIs to perform crud for digital signature
+ */
 @RestController
 @RequestMapping("/api/v1/digital-signature")
 public class DigitalSignatureController {
