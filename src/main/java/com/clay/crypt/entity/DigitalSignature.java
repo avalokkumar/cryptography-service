@@ -19,7 +19,6 @@ public class DigitalSignature {
     private String data;
     private String digitalSignature;
     private String privateKey;
-
     private String publicKey;
 
     private String generateSignature(String data, PrivateKey privateKey, String algorithm) throws Exception {

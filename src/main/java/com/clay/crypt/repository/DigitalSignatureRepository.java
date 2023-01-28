@@ -8,6 +8,5 @@ import java.util.Optional;
 
 @Repository
 public interface DigitalSignatureRepository extends MongoRepository<DigitalSignature, String> {
-    
-    Optional<DigitalSignature> findBySignatureId(String signatureId);
+
 }

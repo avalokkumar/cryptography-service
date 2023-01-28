@@ -7,22 +7,24 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
+import java.security.SignatureException;
 import java.util.List;
 
 /**
  * APIs to perform crud for digital signature
  */
 @RestController
-@RequestMapping("/api/v1/digital-signature")
+@RequestMapping("/api/v1/digital-signatures")
 public class DigitalSignatureController {
 
     @Autowired
     private DigitalSignatureService digitalSignatureService;
 
     @PostMapping
-    public ResponseEntity<DigitalSignatureDTO> createDigitalSignature(@RequestBody DigitalSignatureDTO digitalSignatureDto) throws NoSuchAlgorithmException, NoSuchProviderException {
+    public ResponseEntity<DigitalSignatureDTO> createDigitalSignature(@RequestBody DigitalSignatureDTO digitalSignatureDto) throws NoSuchAlgorithmException, NoSuchProviderException, SignatureException, InvalidKeyException {
 
         DigitalSignatureDTO createdDigitalSignature = digitalSignatureService.create(digitalSignatureDto);
         return new ResponseEntity<>(createdDigitalSignature, HttpStatus.CREATED);
@@ -43,7 +45,8 @@ public class DigitalSignatureController {
         digitalSignatureService.delete(id);
     }
 
-    @PutMapping("/{id}")
+    //Update Not Supported
+//    @PutMapping("/{id}")
     public DigitalSignatureDTO updateDigitalSignature(@PathVariable String id, @RequestBody DigitalSignatureDTO digitalSignatureDTO) {
         return digitalSignatureService.update(id, digitalSignatureDTO);
     }
