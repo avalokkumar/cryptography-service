@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.NoSuchAlgorithmException;
+import java.security.NoSuchProviderException;
 import java.util.List;
 
 @RestController
@@ -17,7 +19,7 @@ public class DigitalSignatureController {
     private DigitalSignatureService digitalSignatureService;
 
     @PostMapping
-    public ResponseEntity<DigitalSignatureDTO> createDigitalSignature(@RequestBody DigitalSignatureDTO digitalSignatureDto) {
+    public ResponseEntity<DigitalSignatureDTO> createDigitalSignature(@RequestBody DigitalSignatureDTO digitalSignatureDto) throws NoSuchAlgorithmException, NoSuchProviderException {
 
         DigitalSignatureDTO createdDigitalSignature = digitalSignatureService.create(digitalSignatureDto);
         return new ResponseEntity<>(createdDigitalSignature, HttpStatus.CREATED);
