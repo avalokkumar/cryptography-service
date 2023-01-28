@@ -10,8 +10,8 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Mapper(componentModel = "spring")
 @Component
+@Mapper(componentModel = "spring")
 public interface DigitalSignatureMapper {
 
     DigitalSignatureDTO toDigitalSignatureDTO(DigitalSignature digitalSignature);
